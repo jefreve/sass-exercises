@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-betweens;
+  border: 1px solid red;
+  padding: 1em;
+  margin: 0.75em;
+}
+div h1 {
+  color: green;
+  text-decoration: underline;
+  text-decoration-color: #0000ff;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  text-align: center;
+  padding: 1em 0 0 0;
+}
+div section:first-of-type {
+  display: flex;
+  margin-bottom: 1em;
+  text-align: center;
+  margin-top: 1em;
+}
+div section:first-of-type article:nth-child(odd) {
+  color: blue;
+  border: 1px solid green;
+  font-size: 1rem;
+  flex: 1;
+  padding: 2em 1em;
+}
+div section:first-of-type article:nth-child(even) {
+  color: red;
+  border: 1px solid green;
+  font-size: 1rem;
+  flex: 1;
+  padding: 2em 1em;
+}
+div section:last-of-type {
+  margin: 0;
+  text-align: center;
+}
+div section:last-of-type article {
+  color: green;
+  border: 1px solid #0000ff;
+  font-size: 1rem;
+  font-size: 24px;
+  padding: 1.5em;
+}
+
+/*# sourceMappingURL=style.css.map */

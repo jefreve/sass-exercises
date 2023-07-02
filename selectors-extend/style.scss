@@ -11,12 +11,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     // 1px is one sixteenth of 1rem, so it equals 0.0625 rem
     border: rc.rem-convert(0.0625) solid c.$external-border-color;
     padding: rc.rem-convert();
     margin: rc.rem-convert(0.75);
     
-    h1 {
+    & .level-one-header {
         color: c.$h1-color;
         text-decoration: underline;
         text-decoration-color: c.$h1-underline-color;
@@ -26,18 +27,26 @@
         padding: rc.rem-convert() 0 0 0; 
     }
 
-    .first-section {
+    & .level-two-header {
+        @extend .level-one-header;
+        padding: rc.rem-convert();
+        border: rc.rem-convert(0.0625) solid c.$external-border-color;
+        text-decoration: none;
+        width: fit-content;
+    }
+
+    & .first-section {
         display: flex;
         margin-bottom: rc.rem-convert();
         text-align: center;
         margin-top:rc.rem-convert();
 
-        .odd {
+        & .odd {
             @include article-layout();
             flex: 1;
             padding: rc.rem-convert(2) rc.rem-convert();   
         }
-        .even {
+       & .even {
             @include article-layout(c.$external-border-color);
             flex: 1;
             padding: rc.rem-convert(2) rc.rem-convert();
@@ -47,10 +56,12 @@
     .second-section {
         margin: 0;
         text-align: center;
+        width: 100%;
     
-        .last-article {
+        & .last-article {
             @include article-layout(c.$h1-color, $border-color: c.$h1-underline-color, $font-size: 1.5rem);
             padding: rc.rem-convert(1.5); 
+            
         }
     }
 }

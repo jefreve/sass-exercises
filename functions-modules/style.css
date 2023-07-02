@@ -1,0 +1,49 @@
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 0.0625rem solid #f00;
+  padding: 1rem;
+  margin: 0.75rem;
+}
+div h1 {
+  color: #027c02;
+  text-decoration: underline;
+  text-decoration-color: #00f;
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.3125rem;
+  text-align: center;
+  padding: 1rem 0 0 0;
+}
+div .first-section {
+  display: flex;
+  margin-bottom: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+div .first-section .odd {
+  color: #00f;
+  border: 0.0625rem solid #027c02;
+  font-size: 1rem;
+  flex: 1;
+  padding: 2rem 1rem;
+}
+div .first-section .even {
+  color: #f00;
+  border: 0.0625rem solid #027c02;
+  font-size: 1rem;
+  flex: 1;
+  padding: 2rem 1rem;
+}
+div .second-section {
+  margin: 0;
+  text-align: center;
+}
+div .second-section .last-article {
+  color: #027c02;
+  border: 0.0625rem solid #00f;
+  font-size: 1.5rem;
+  padding: 1.5rem;
+}
+
+/*# sourceMappingURL=style.css.map */

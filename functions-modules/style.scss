@@ -1,0 +1,56 @@
+@use "colors.scss" as c;
+@use "rem-convert.scss" as rc;
+
+@mixin article-layout($color: #00f, $border-color: #027c02, $font-size: 1rem) {
+    color: $color;
+    border: rc.rem-convert(0.0625) solid $border-color;
+    font-size: $font-size;
+}
+
+ div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // 1px is one sixteenth of 1rem, so it equals 0.0625 rem
+    border: rc.rem-convert(0.0625) solid c.$external-border-color;
+    padding: rc.rem-convert();
+    margin: rc.rem-convert(0.75);
+    
+    h1 {
+        color: c.$h1-color;
+        text-decoration: underline;
+        text-decoration-color: c.$h1-underline-color;
+        text-decoration-thickness: rc.rem-convert(0.0625);
+        text-underline-offset: rc.rem-convert(0.3125);
+        text-align: center;
+        padding: rc.rem-convert() 0 0 0; 
+    }
+
+    .first-section {
+        display: flex;
+        margin-bottom: rc.rem-convert();
+        text-align: center;
+        margin-top:rc.rem-convert();
+
+        .odd {
+            @include article-layout();
+            flex: 1;
+            padding: rc.rem-convert(2) rc.rem-convert();   
+        }
+        .even {
+            @include article-layout(c.$external-border-color);
+            flex: 1;
+            padding: rc.rem-convert(2) rc.rem-convert();
+        }
+    }
+
+    .second-section {
+        margin: 0;
+        text-align: center;
+    
+        .last-article {
+            @include article-layout(c.$h1-color, $border-color: c.$h1-underline-color, $font-size: 1.5rem);
+            padding: rc.rem-convert(1.5); 
+        }
+    }
+}

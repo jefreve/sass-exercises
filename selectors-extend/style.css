@@ -7,7 +7,7 @@ div {
   padding: 1rem;
   margin: 0.75rem;
 }
-div .level-one-header, div .level-two-header {
+div .text, div .level-two-header, div .level-one-header {
   color: #027c02;
   text-decoration: underline;
   text-decoration-color: #00f;

@@ -16,8 +16,8 @@
     border: rc.rem-convert(0.0625) solid c.$external-border-color;
     padding: rc.rem-convert();
     margin: rc.rem-convert(0.75);
-    
-    & .level-one-header {
+
+    .text {
         color: c.$h1-color;
         text-decoration: underline;
         text-decoration-color: c.$h1-underline-color;
@@ -26,9 +26,13 @@
         text-align: center;
         padding: rc.rem-convert() 0 0 0; 
     }
+    
+    & .level-one-header {
+       @extend .text;
+    }
 
     & .level-two-header {
-        @extend .level-one-header;
+        @extend .text;
         padding: rc.rem-convert();
         border: rc.rem-convert(0.0625) solid c.$external-border-color;
         text-decoration: none;

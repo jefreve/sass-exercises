@@ -1,0 +1,120 @@
+@use "rem-convert.scss" as rc;
+@use "colors.scss" as colors;
+@use "sass:color";
+
+$text-even: colors.$border-color-one;
+$h1-underline-color: colors.$text-odd;
+$articles-first-section-border: colors.$h-color;
+$articles-last-section-border: colors.$text-odd;
+$numbers-section-border: colors.$border-color-one;
+$articles-last-section-color: colors.$h-color;
+
+article
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    border: rc.rem-convert(1) solid colors.$border-color-one;
+    padding: rc.rem-convert(15);
+}
+
+.headers-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    color: colors.$h-color;
+    text-align: center;
+    border: rc.rem-convert(1) solid colors.$border-color-one;
+    width:fit-content;
+    padding: rc.rem-convert(20);
+    
+}
+
+h1 {
+    @extend h2; 
+    border: 0;
+    padding: 0;
+    text-decoration: underline $h1-underline-color;
+    text-decoration-thickness: rc.rem-convert(1.5);
+    text-underline-offset: rc.rem-convert(7);
+}
+
+.first-section {
+    display: flex;
+
+    & article {
+        flex: 1;
+        border: rc.rem-convert(1) solid $articles-first-section-border;
+        padding: rc.rem-convert(35) rc.rem-convert(20);
+    }
+
+    & article:nth-of-type(odd) {
+        color: colors.$text-odd;
+    }
+
+    & article:nth-of-type(even) {
+        color: $text-even;
+    }
+
+}
+
+@for $index from 1 through 3 {
+    .numbers-section .fs-#{$index}rem {
+        font-size: $index + rem;
+    }
+}
+
+.numbers-section{
+    display: flex;
+    justify-content: space-between;
+    margin: rc.rem-convert(15) 0;
+   
+    div {
+        border: rc.rem-convert(1) solid $numbers-section-border;
+        height: rc.rem-convert(45);
+        width: rc.rem-convert(45);
+    }
+
+    .halfway {
+        color: colors.$border-color-one;
+        background-color: colors.$text-odd;
+        font-weight: bold;
+    }
+}
+
+.last-section {
+    border: rc.rem-convert(1) solid $articles-last-section-border;
+    font-size: rc.rem-convert(24);
+    color: $articles-last-section-color;
+    padding: rc.rem-convert(45) rc.rem-convert(30);
+    text-align: center;
+}
+
+/* || Set size of numbers inside .number-section */
+@for $index from 1 through 3 {
+    .numbers-section .fs-#{$index}rem {
+        font-size: $index + rem;
+    }
+}
+
+/* || Set background color and text color for numbers inside .number-section */
+@for $index from 1 through 19 {
+    .numbers-section div:nth-of-type(#{$index}) {
+        $n: $index * 5;
+        background-color: darken(white, $n*1%);
+        color: lighten(black, $n*1%);
+        
+        @if $index == 10 {
+            color: colors.$border-color-one;
+            background-color: colors.$text-odd;
+            font-weight: bold;
+        }
+    }
+}

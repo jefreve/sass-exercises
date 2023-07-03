@@ -1,0 +1,4 @@
+@function rem-convert($pixel-size: 16px) {
+    $rem-size: calc($pixel-size / 16);
+    @return $rem-size + rem;
+}
